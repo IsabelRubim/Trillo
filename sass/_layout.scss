@@ -1,0 +1,107 @@
+.container {
+    max-width: 120rem; // Se a vw tiver menos que 1200px, então ela irá ocupar 100% da largura da vw.
+    margin: 8rem auto;
+    background-color: var(--color-grey-light-1);
+    box-shadow: var(--shadow-dark);
+
+    min-height: 50rem;
+
+    // Primeiro breakpoint
+    @media only screen and (max-width: $bp-largest) {
+        margin: 0;
+        //Isso porque definimos a font-size do body para 50%
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+.header {
+    font-size: 1.4rem;
+    height: 7rem;
+    background-color: #fff;
+    border-bottom: var(--line); // Isso aplica uma borda abaixo da barra do cabeçalho 
+
+    display: flex; // Coloca os itens lado a lado definindo o flex.
+    justify-content: space-between; // Espaço entre os itens
+    align-items: center; // Centra os itens ao logo do eixo y.
+
+    // Quinto breakpoint
+    @media only screen and (max-width: $bp-smallest) {
+        flex-wrap: wrap;
+        align-content: space-around; // Faz que os elementos do header se agrupem e deem espaço ao redor.
+        height: 11rem;
+    }
+}
+
+.content {
+    display: flex; // Deixa os dois elementos (barra lateral e conteúdo principal (hotel view)) como flex.
+
+    // Terceiro breakpoint
+    @media only screen and (max-width: $bp-medium) {
+        flex-direction: column;
+    }
+}
+
+.sidebar {
+    background-color: var(--color-grey-dark-1);
+
+    flex: 0 0 18%; // Isso define a largura, não queremos que o elemento diminuia ou cresça além da sua largura definida com 18%.
+
+    display: flex;
+    flex-direction: column; // Muda a direção da barra para de cima para baixo.
+    justify-content: space-between; // Isso faz com que empurre os dois elementos da sidebar (texto legal e a nav) o texto legal irá para o final da side bar e a nav irá para o top
+}
+
+.hotel-view {
+    background-color: #fff;
+    
+
+    flex: 1; // Isso irá ocupar toda a largura disponível do content (100 - 18 = 82)
+}
+
+.detail {
+    font-size: 1.4rem;
+    display: flex;
+    padding: 4.5rem;
+    background-color: var(--color-grey-light-1);
+    border-bottom: var(--line);
+
+    // Terceiro breakpoint
+    @media only screen and (max-width: $bp-medium) {
+        padding: 3rem;
+    }
+
+    // Quarto breakpoint
+    @media only screen and (max-width: $bp-small) {
+        flex-direction: column;
+    }
+}
+
+.description {    
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    flex: 0 0 60%;
+    margin-right: 4.5rem;
+
+    // Terceiro breakpoint
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-right: 3rem;
+    }
+
+    // Quarto breakpoint
+    @media only screen and (max-width: $bp-small) {
+        margin-right: 0;
+        margin-bottom: 3rem;
+    }
+}
+
+.user-reviews {
+    flex: 1;
+
+    // Para centralizar o botão "show all"
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
